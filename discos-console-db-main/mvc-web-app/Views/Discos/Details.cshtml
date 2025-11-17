@@ -1,0 +1,59 @@
+﻿@model dominio.Disco
+
+@{
+    ViewData["Title"] = "Detalles del disco " + Model.Titulo;
+}
+
+<h1>Detalles del disco "@Html.DisplayFor(model => model.Titulo)"</h1>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-8">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Titulo)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.FechaLanzamiento)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.FechaLanzamiento)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CantidadCanciones)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CantidadCanciones)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Estilo.Descripcion)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Estilo.Descripcion)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.TipoEdicion.Descripcion)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.TipoEdicion.Descripcion)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-4">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.UrlTapa)
+            </dt>
+            <dd class="col-sm-8">
+                <img src="@Html.DisplayFor(model => model.UrlTapa)" />
+            </dd>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-outline-dark">Volver a la lista</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-success">Editar</a>
+</div>

@@ -15,7 +15,7 @@ namespace dominio
         public string Titulo { get; set; }
         [Required]
         [Display(Name = "Fecha de lanzamiento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaLanzamiento { get; set; }
         [Required]
         [Display(Name = "Canciones")]

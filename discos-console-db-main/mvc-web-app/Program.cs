@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +15,17 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+//configuración para fechas
+var culture = new System.Globalization.CultureInfo("es-AR");
+culture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+culture.DateTimeFormat.LongTimePattern = "";
+var options = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(culture),
+    SupportedCultures = new List<CultureInfo> { culture },
+    SupportedUICultures = new List<CultureInfo> { culture }
+};
 
 app.UseHttpsRedirection();
 app.UseRouting();
