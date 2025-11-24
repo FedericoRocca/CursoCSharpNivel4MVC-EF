@@ -76,16 +76,20 @@ namespace mvc_web_app.Controllers
         // GET: DiscosController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            DiscoNegocio dnegocio = new DiscoNegocio();
+            Disco _disco = dnegocio.listar().Find(_disco => _disco.Id == id);
+            return View(_disco);
         }
 
         // POST: DiscosController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Disco _disco)
         {
             try
             {
+                DiscoNegocio dNegocio = new DiscoNegocio();
+                dNegocio.eliminar(_disco.Id);
                 return RedirectToAction(nameof(Index));
             }
             catch
